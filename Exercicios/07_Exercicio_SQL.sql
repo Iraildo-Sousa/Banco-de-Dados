@@ -1,5 +1,5 @@
-CREATE DATABASE 06_Exercicio_SQL_Empreiteira;
-USE 06_Exercicio_SQL_Empreiteira;
+CREATE DATABASE 07_Exercicio_SQL_Empreiteira;
+USE 07_Exercicio_SQL_Empreiteira;
 
 #DROP TABLE pessoa;
 CREATE TABLE pessoa(
@@ -143,12 +143,12 @@ VALUES
     
 INSERT INTO colaborador(funcao, matricula, salario, tipoContrato, idPessoa)
 VALUE 
-	('Bombeiro Hidráulico', 'BOM456454', 4044.23, '5 meses', 5),
-    ('Eletricista', 'ELE856568', 2366.02, '5 meses', 6),
-    ('Arquiteto', 'ARQ75654', 3330.78, '3 meses', 7),
-    ('Arquiteto', 'ARQ65354', 3330.78, '3 meses', 8),
-    ('Pedreiro', 'PED452413', 2983.45, '8 meses', 9),
-    ('Mestre de Obra', 'MES45847', 4007.03, '8 meses', 10);
+	('Bombeiro Hidráulico', 'BOM456454', 4044.23, 'CLT', 5),
+    ('Eletricista', 'ELE856568', 2366.02, 'CNPJ', 6),
+    ('Arquiteto', 'ARQ75654', 3330.78, 'CNPJ', 7),
+    ('Arquiteto', 'ARQ65354', 3330.78, 'CNPJ', 8),
+    ('Pedreiro', 'PED452413', 2983.45, 'CLT', 9),
+    ('Mestre de Obra', 'MES45847', 4007.03, 'CNPJ', 10);
  
 INSERT INTO projeto(valor, tipoProjeto, nomeProjeto, dataInicio, previsao, dataFim, idColaborador)
 VALUE
