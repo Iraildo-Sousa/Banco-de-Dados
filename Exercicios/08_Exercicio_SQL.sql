@@ -9,21 +9,32 @@ Data Inicio da Obra
 Previsão da Obra
 Valor da Obra */
 
+
+
 SELECT * FROM canteiroObra;
 SELECT * FROM obra;
 SELECT * FROM projeto;
 SELECT * FROM colaborador;
 SELECT * FROM empreiteira;
-SELECT * FROM pessoa
+SELECT * FROM pessoa;
 
-;SELECT 
+SELECT 
 
-O.dataInicio, O.previsao, O.valor, PE.nomeFantasia, C.funcao, PC.nome AS nomeFuncionario
+O.dataInicio, O.previsao, O.valor, PR.nomeProjeto, PE.nomeFantasia, C.funcao, PC.nome AS nomeFuncionario, PCO.nome AS nomeResponsavel, (PR.valor + O.valor) AS totalObra
 
-FROM canteiroObra CO
+FROM canteiroObra CO 
 
 INNER JOIN obra O ON O.idObra = CO.idObra
+INNER JOIN projeto PR ON PR.idProjeto = O.idProjeto
+INNER JOIN colaborador CP ON CP.idColaborador = PR.idColaborador
+INNER JOIN pessoa PCO ON PCO.idPessoa = CP.idPessoa
 INNER JOIN empreiteira E ON E.idEmpreiteira = O.idEmpreiteira
 INNER JOIN pessoa PE ON PE.idPessoa = E.idPessoa
 INNER JOIN colaborador C ON C.idColaborador = CO.idColaborador
 INNER JOIN pessoa PC ON PC.idPessoa = C.idPessoa
+
+
+/*O cliente solicitou que adicionasse no relatório passado as seguintes informações:
+Nome do projeto
+Nome da pessoa responsável pelo projeto.
+Valor total do projeto com a obra.*/
